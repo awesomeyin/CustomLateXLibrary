@@ -1,4 +1,4 @@
-package com.sixgodit.xzz.jlatexmathexample;
+package com.example.customlatexlibrary;
 
 public class ExampleFormula {
     private static String mExample3 = "${\\frac{电梯上升10米里做的功\\phantom{电梯上升米里做的功}}{电梯上升10米花的时间\\phantom{电梯上升米花的时间}}}$";
@@ -22,7 +22,7 @@ public class ExampleFormula {
 
     // 注释： 公式 例如 ${A_{1}$
     private static String mExample0 = "${A_{1} " +
-            "+X_{a} 哦哦哦O " +
+            "+X_a" +
             "+A_{1}B1"+
             "+A_{1}B_{2}"+
             "+3^2 " +

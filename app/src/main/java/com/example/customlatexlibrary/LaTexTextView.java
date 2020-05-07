@@ -1,4 +1,4 @@
-package com.sixgodit.xzz.jlatexmathexample;
+package com.example.customlatexlibrary;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,6 +8,7 @@ import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.util.AttributeSet;
+
 import org.scilab.forge.jlatexmath.core.AjLatexMath;
 import org.scilab.forge.jlatexmath.core.Insets;
 import org.scilab.forge.jlatexmath.core.TeXConstants;

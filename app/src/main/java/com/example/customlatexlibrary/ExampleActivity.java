@@ -1,9 +1,8 @@
-package com.sixgodit.xzz.jlatexmathexample;
+package com.example.customlatexlibrary;
 
-import android.os.Bundle;;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -12,6 +11,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import org.scilab.forge.jlatexmath.core.AjLatexMath;
+
+;
 
 
 public class ExampleActivity extends FragmentActivity implements

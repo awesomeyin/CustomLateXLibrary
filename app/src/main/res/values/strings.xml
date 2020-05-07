@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">CustomLateXLibrary</string>
+    <string name="app_name">LimiLateX</string>
+    <string name="answer_secret">* * *</string>
+    <string name="my_answer">我的答案：</string>
 </resources>

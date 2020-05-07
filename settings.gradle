@@ -1,2 +1,3 @@
 rootProject.name='CustomLateXLibrary'
-include ':app'
+include ':app', ':latexlibrary'
+

@@ -1,4 +1,4 @@
-package com.sixgodit.xzz.jlatexmathexample;
+package com.example.customlatexlibrary;
 
 /**
  * Created by xuzhenzhou on 15/10/14.

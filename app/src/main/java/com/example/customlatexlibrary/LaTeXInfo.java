@@ -1,4 +1,4 @@
-package com.sixgodit.xzz.jlatexmathexample;
+package com.example.customlatexlibrary;
 
 import org.scilab.forge.jlatexmath.core.TeXFormula;
 
