@@ -98,22 +98,27 @@ public class ExampleFragment extends Fragment implements OnClickListener {
             mLaTexTextView.setLinketext(mLatex);
             mLaTexTextView.setTextColor((int) -(Math.random() * (16777216 - 1) + 1));
             // 测试转化后台返回的数据
-            Log.d("后台返回的公式", "分数");
-            setLayout(getContext(), "#1/2#", 30, true, true);
-            Log.d("后台返回的公式", "次方");
+            Log.d("后台返回的公式", "===============================分数======================================");
+            setLayout(getContext(), "@3*2*@", 30, true, true);
+            Log.d("后台返回的公式", "===============================次方======================================");
             setLayout(getContext(), "3*2*", 30, true, true);
-            Log.d("后台返回的公式", "假分数");
+            Log.d("后台返回的公式", "===============================假分数=====================================");
             setLayout(getContext(), "#3|1/2#", 30, true, true);
-            Log.d("后台返回的公式", "根号");
+            Log.d("后台返回的公式", "===============================根号=======================================");
             setLayout(getContext(), "2@3@", 30, true, true);
-            Log.d("后台返回的公式", "多组下角标");
+            Log.d("后台返回的公式", "===============================根号下是分数=================================");
+            setLayout(getContext(), "@1/2@", 30, true, true);
+            Log.d("后台返回的公式", "===============================多组下角标=====================================");
             setLayout(getContext(), "&A>1|B>1&", 30, true, true);
-            Log.d("后台返回的公式", "单组下角标");
+            Log.d("后台返回的公式", "===============================单组下角标=====================================");
             setLayout(getContext(), "&X>a&", 30, true, true);
+//            setLayout(getContext(), "#1/2#", 30, true, true);
         }
     }
     public void setLayout(Context context, String gap, float size, boolean isShowOriginalText, boolean isNeedPadding) {
         ArrayList<String> gaps = ArrayUtils.getQuestions(context, gap);
+        Log.d("后台返回的公式", "gaps:"+gaps.toString());
+
         for (int i = 0; i < gaps.size(); i++) {
             if (gaps.get(i).equals("input")) {
                 Log.d("后台返回的公式", "input");
@@ -170,8 +175,20 @@ public class ExampleFragment extends Fragment implements OnClickListener {
                             Log.d("后台返回的公式", "scores：分数的第" + (j + 1) + "项：" + scores[j] + "  size:" + scores.length);
                         }
                     }
-                } else if (gaps.get(i).contains("@")) {
+                } else if (gaps.get(i).contains("@")) {//满足根号
+                    String latex = "";// lateX 公式
                     String sqrt = MathFormatUtils.getMathSqrt(gaps.get(i));
+                    if (gaps.get(i).contains("*")){  //满足平方
+                        String[] squares = MathFormatUtils.getMathSquare(sqrt);
+                        if (squares.length < 2) {
+                            Log.d("后台返回的公式", "squares：" + squares[0]);
+                        } else {
+                            for (int j = 0; j < squares.length; j++) {
+                                Log.d("后台返回的公式", "squares：几次方" + squares[j]);
+                            }
+                            mLaTexTextView.setLinketext("${" + squares[0] + "^" + squares[1] + "}" + "$");
+                        }
+                    }
                     Log.d("后台返回的公式", "sqrt 根号 ：" + sqrt);
                 } else if (gaps.get(i).contains("*")) {
                     if (gaps.get(i).length() < 3) {
