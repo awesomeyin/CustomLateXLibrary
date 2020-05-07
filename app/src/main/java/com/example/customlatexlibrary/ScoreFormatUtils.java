@@ -150,7 +150,6 @@ public class ScoreFormatUtils {
                 return arrayList;
             } else {
                 Log.d("后台返回的公式", "下角标：一组数据如下：");
-
                 String[] strss = new String[3];
                 strss[0] = msg.substring(0, msg.indexOf(">"));
                 if (msg.length() > msg.indexOf(">") + 1 && msg.indexOf(">") > 0) {

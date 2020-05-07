@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +31,7 @@ public class ExampleFragment extends Fragment implements OnClickListener {
     private float mTextSize = 12;
     private int mTag;
     private EditText mSizeText;
+    private TextView tv_custom;
 
     private void setFormula(String latex) {
         mLatex = latex;
@@ -46,8 +48,6 @@ public class ExampleFragment extends Fragment implements OnClickListener {
         outState.putInt("tag", mTag);
         super.onSaveInstanceState(outState);
     }
-
-    ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,8 @@ public class ExampleFragment extends Fragment implements OnClickListener {
         LinearLayout layout = (LinearLayout) inflater.inflate(
                 R.layout.fragment_example, container, false);
         mLaTexTextView = (LaTexTextView) layout.findViewById(R.id.logo);
+        tv_custom = (TextView) layout.findViewById(R.id.tv_custom);
+
         mSizeText = (EditText) layout.findViewById(R.id.size);
         layout.findViewById(R.id.set_textsize).setOnClickListener(this);
 
@@ -96,11 +98,17 @@ public class ExampleFragment extends Fragment implements OnClickListener {
             mLaTexTextView.setLinketext(mLatex);
             mLaTexTextView.setTextColor((int) -(Math.random() * (16777216 - 1) + 1));
             // 测试转化后台返回的数据
+            Log.d("后台返回的公式", "分数");
             setLayout(getContext(), "#1/2#", 30, true, true);
+            Log.d("后台返回的公式", "次方");
             setLayout(getContext(), "3*2*", 30, true, true);
+            Log.d("后台返回的公式", "假分数");
             setLayout(getContext(), "#3|1/2#", 30, true, true);
-            setLayout(getContext(), "&A>1|B>1&", 30, true, true);
+            Log.d("后台返回的公式", "根号");
             setLayout(getContext(), "2@3@", 30, true, true);
+            Log.d("后台返回的公式", "多组下角标");
+            setLayout(getContext(), "&A>1|B>1&", 30, true, true);
+            Log.d("后台返回的公式", "单组下角标");
             setLayout(getContext(), "&X>a&", 30, true, true);
         }
     }
